@@ -1,0 +1,4 @@
+scipy>=1.13,<2
+certifi>=2024.2.2
+truststore>=0.10.0
+

@@ -1,0 +1,82 @@
+/* Restrained theme and calendar hierarchy layered over the base layout. */
+:root {
+  --bg: #10151d;
+  --panel: #161d27;
+  --card: #1b2430;
+  --line: #303a48;
+  --text: #edf1f5;
+  --muted: #bac3ce;
+  --blue: #4d83c2;
+  --cyan: #70a8b8;
+  --green: #5c9b7d;
+  --red: #b35c6a;
+  --amber: #b28a52;
+  --violet: #8173b2;
+}
+
+.topbar { height: 68px; background: #121923; backdrop-filter: none; }
+.brand-mark { width: 34px; height: 34px; border-radius: 8px; font-size: 18px; font-weight: 750; background: #315f91; box-shadow: none; }
+.brand small { color: var(--muted); font-size: 11px; letter-spacing: 0; }
+.button, .icon-button, .tiny-button { background: #1b2430; border-radius: 7px; transition: border-color .15s, background .15s; }
+.button:hover, .icon-button:hover { border-color: #667384; background: #222d3a; transform: none; }
+.button.primary { background: #315f91; border-color: #4778aa; box-shadow: none; }
+.button.accent { background: #356e66; border-color: #4f8f83; }
+.app-shell { min-height: calc(100vh - 68px); }
+.sidebar { background: #131a24; }
+.section-title { color: #aab3bd; font-size: 11px; font-weight: 650; letter-spacing: 0; }
+.course-card { border-radius: 8px; cursor: pointer; }
+.course-card:focus { outline: 2px solid color-mix(in srgb, var(--course-color), white 30%); outline-offset: 1px; }
+.attached-task input { accent-color: var(--blue); }
+.progress-track span { box-shadow: none; }
+.pulse { box-shadow: none; }
+.day.today { box-shadow: none; }
+.week-meta { display: flex; align-items: center; gap: 16px; }
+.calendar-key { display: flex; align-items: center; gap: 6px; margin-left: auto; }
+.calendar-key i { display: inline-block; width: 12px; height: 8px; border-radius: 2px; }
+.key-class { background: #4d83c2; }
+.key-study { background: #243348; border: 1px solid #4d83c2; }
+.timeline-week { border-radius: 8px; background: #131a24; }
+.timeline-label { color: #9ca6b2; font-size: 10px; font-weight: 650; letter-spacing: 0; }
+.timeline-head { top: 68px; background: #19222d; }
+.day-lane { background: repeating-linear-gradient(to bottom, transparent 0, transparent 27px, #252e3a 28px, transparent 29px, transparent 55px, #333d4a 56px); }
+.timeline-body .event { right: auto; background: #1b2531; border-radius: 4px; box-shadow: none; }
+.timeline-body .event.class-event { background: var(--event-color); border-color: color-mix(in srgb, var(--event-color), white 25%); border-left-width: 1px; color: white; }
+.timeline-body .event.study-event { background: color-mix(in srgb, var(--event-color) 16%, #18212c); border-color: color-mix(in srgb, var(--event-color) 55%, #303a48); border-left-width: 3px; }
+.timeline-body .event.class-event .event-time, .timeline-body .event.class-event .event-note { color: #fff; }
+.timeline-body .event.class-event .badge { background: rgba(0,0,0,.2); color: white; }
+.timeline-body .event.study-event .event-time, .timeline-body .event.study-event .event-note { color: #e2e8f0; }
+.timeline-body .event .badge { color: #edf2f7; }
+.timeline-body .event.routine-event { opacity: 1; background: color-mix(in srgb, var(--event-color) 34%, #18212c); border-color: var(--event-color); }
+.timeline-body .event.calendar-event { background: #222c38; }
+.study-event.course-muted { opacity: .18; }
+.study-event.course-highlight { z-index: 6; outline: 2px solid color-mix(in srgb, var(--event-color), white 35%); background: color-mix(in srgb, var(--event-color) 32%, #18212c); }
+.now-line { position: absolute; left: 0; right: 0; height: 2px; background: #e05252; z-index: 7; pointer-events: none; }
+.now-line::before { content: ""; position: absolute; left: -4px; top: -3px; width: 8px; height: 8px; border-radius: 50%; background: #e05252; }
+.event-detail-time { color: var(--muted); margin: -4px 0 16px; }
+.event-detail-note { padding: 10px 12px; background: #151d27; border: 1px solid var(--line); border-radius: 6px; }
+.attached-tasks { margin: 16px 0; }
+.attached-tasks > label { display: block; color: var(--muted); font-size: 10px; font-weight: 700; margin-bottom: 7px; }
+.attached-task { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.attached-task label { display: flex; align-items: flex-start; gap: 8px; cursor: pointer; }
+.attached-task.task-completed span { color: var(--muted); text-decoration: line-through; }
+.attached-task button { border: 0; background: transparent; color: #c98282; cursor: pointer; font-size: 11px; }
+.empty.compact { padding: 8px 0; text-align: left; }
+.detail-help { color: var(--muted); font-size: 11px; margin: 14px 0 0; }
+.routine-settings { display: grid; grid-template-columns: 72px 1fr auto 1fr 72px auto; gap: 8px; align-items: center; }
+.routine-settings input { min-width: 0; width: 100%; background: #0f172a; color: var(--text); border: 1px solid var(--line); border-radius: 7px; padding: 8px; }
+.routine-settings span { color: var(--muted); font-size: 11px; }
+.task-card { position: relative; padding-right: 30px; }
+.task-delete { position: absolute; top: 7px; right: 7px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 17px; }
+.task-delete:hover { color: #ef8d8d; }
+.item-status-actions { display: flex; gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); }
+.item-status-actions button { border: 1px solid var(--line); background: #222d3a; color: var(--text); border-radius: 6px; padding: 7px 10px; cursor: pointer; }
+.item-status-actions button:hover { border-color: #758294; }
+.study-switch { margin: 16px 0; padding-top: 14px; border-top: 1px solid var(--line); }
+.study-switch > label { display: block; color: var(--muted); font-size: 10px; font-weight: 700; margin-bottom: 7px; }
+.study-switch > div { display: flex; gap: 8px; }
+.study-switch select { flex: 1; min-width: 0; background: #0f172a; color: var(--text); border: 1px solid var(--line); border-radius: 7px; padding: 8px; }
+.study-switch button { border: 1px solid var(--line); background: #222d3a; color: var(--text); border-radius: 7px; padding: 8px 10px; cursor: pointer; }
+.target-stepper { display: grid; grid-template-columns: 32px 1fr 32px; gap: 7px; align-items: center; margin: 10px 0 5px; }
+.target-stepper button { height: 30px; border: 1px solid var(--line); border-radius: 6px; background: #222d3a; color: var(--text); cursor: pointer; font-size: 17px; line-height: 1; }
+.target-stepper button:hover { border-color: var(--course-color); }
+.target-stepper output { text-align: center; color: var(--text); font-weight: 700; font-size: 12px; }

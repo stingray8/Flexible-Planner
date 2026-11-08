@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0f172a"><title>FlexiStudy Local</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/theme.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">F</span><div><h1>FlexiStudy</h1><small>Your two-week study plan</small></div></div>
+    <div class="header-actions">
+      <span id="syncStatus" class="sync-status">Not synced yet</span>
+      <button id="syncBtn" class="button primary"><span class="sync-icon">↻</span> Sync calendars</button>
+      <button id="logBlockBtn" class="button">Log previous block</button>
+      <button id="addTaskBtn" class="button">Add task</button>
+      <button id="settingsBtn" class="icon-button" aria-label="Open settings">⚙</button>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <div class="section-title"><span>Course targets</span><button id="addCourseBtn" class="tiny-button">Add</button></div>
+      <div id="courseTargets"></div>
+      <div class="section-title backlog-title"><span>Task backlog</span><span id="backlogCount" class="count"></span></div>
+      <div id="backlog"></div>
+    </aside>
+
+    <section class="workspace">
+      <div class="toolbar">
+        <div class="segmented" role="group" aria-label="Calendar view">
+          <button data-view="both" class="active">Two weeks</button>
+          <button data-view="this">This week</button><button data-view="next">Next week</button>
+        </div>
+        <div class="strategy-wrap"><label for="strategy">When the week is too full</label>
+          <select id="strategy" title="Choose what the planner should protect when everything cannot fit."><option value="balanced">Protect sleep and meals</option><option value="targets">Protect study goals</option><option value="night">Use later evening hours</option><option value="split">Use shorter study blocks</option><option value="weekend">Move more work to weekends</option></select>
+          <button id="planHelp" class="help-button" title="What does this mean?">?</button>
+          <button id="planBtn" class="button accent">Rebuild flexible plan</button>
+        </div>
+      </div>
+      <div id="weekMeta" class="week-meta"></div>
+      <div id="calendar" class="calendar"></div>
+      <section class="loss-panel"><div class="loss-heading"><span class="pulse"></span><div><h3>Optimization report</h3><p id="solverStatus">Your plan is ready.</p></div></div><div id="lossReport"></div></section>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="modal"><form id="modalForm" method="dialog"><div class="modal-header"><div><small id="modalEyebrow"></small><h2 id="modalTitle"></h2></div><button type="button" class="close" data-close>×</button></div><div id="modalBody"></div><div class="modal-actions"><button type="button" class="button" data-close>Cancel</button><button id="modalSubmit" type="submit" class="button primary">Save</button></div></form></dialog>
+  <script src="/app.js"></script>
+</body>
+</html>
+
